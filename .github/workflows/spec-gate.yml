@@ -1,0 +1,11 @@
+﻿name: Spec Gate
+on: [push, pull_request]
+jobs:
+  tlc:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install TLA+
+        run: sudo apt-get update && sudo apt-get install -y tla+
+      - name: Run TLC
+        run: tlc specs/tla/DGK_PreExecution.tla
