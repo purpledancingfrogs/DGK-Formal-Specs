@@ -1,0 +1,14 @@
+﻿name: Formal Spec Consistency
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  spec-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Spec presence check
+        run: |
+          test -f specs/tla/DGK_PreExecution.tla
